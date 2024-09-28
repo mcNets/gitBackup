@@ -1,6 +1,10 @@
 # gitBackup
 
+**Windows** | **Linux** | **macOS**
+
 **gitBackup** is a command-line tool that allows you to create backups of a list of repositories in a specified drive or folder.
+
+    NOTE: You must have the necessary permissions to clone the repositories.
 
 ## Setup Instructions
 
@@ -43,7 +47,6 @@ Here's an example of the `appsettings.json` file:
     - **Path**: The folder where the repository will be saved (e.g., `BackupFolder` + `Path` = `RepositoryFolder`).
     - **URL**: The repository’s URL.
 
-**Note:** You must have the necessary permissions to clone the repositories.
 
 4. Run the command `.\gitBackup.exe` in the project's root directory to start the backup process.
 
