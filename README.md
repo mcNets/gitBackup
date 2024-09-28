@@ -1,5 +1,7 @@
 # gitBackup
 
+![net9.0](https://img.shields.io/badge/dotnet-9.0-blue)
+
 **Windows** | **Linux** | **macOS**
 
 **gitBackup** is a command-line tool that allows you to create backups of a list of repositories in a specified drive or folder. The tool checks if there is an existing repository in the specified folder and updates it. If there is no repository, the tool clones it, otherwise, it pull the latest changes and updates the repository.
