@@ -3,8 +3,9 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
-# appsettins.json is used to store sensitive data, such as passwords, that should not be checked into source control.
+# appsettings.json is used to store sensitive data, such as passwords, that should not be checked into source control.
 appsettings.json
+!appsettings.json.tmp
 
 # dotenv files
 .env
