@@ -6,6 +6,17 @@ Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"gitBackup Ver. {version?.Major}.{version?.Minor}.{version?.Build}");
 Console.ResetColor();
 
+// check if appsettings.json exists
+if (File.Exists("appsettings.json") == false)
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("appsettings.json not found");
+    Console.WriteLine("Follow the instructions in README.md to create the file");
+    Console.WriteLine("https://github.com/mcNets/gitBackup");
+    Console.ResetColor();
+    return;
+}
+
 // access to appsettings.json
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
