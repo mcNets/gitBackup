@@ -1,6 +1,6 @@
 # gitBackup
 
-![net9.0](https://img.shields.io/badge/dotnet-9.0-blue)
+![net9.0](https://img.shields.io/badge/net-9.0-blue)
 
 **Windows** | **Linux** | **macOS**
 
