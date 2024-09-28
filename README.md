@@ -1,4 +1,4 @@
-# gitBack
+# gitBackup
 
 **gitBackup** is a command-line tool that allows you to create backups of a list of repositories in a specified drive or folder.
 
