@@ -1,14 +1,19 @@
 # gitBack
 
-**gitBackup** is a command line tool that allow you to create a backup of a list or repositories in a specific drive or folder.
+**gitBackup** is a command-line tool that allows you to create backups of a list of repositories in a specified drive or folder.
 
-## How to set up
+## Setup Instructions
 
-1 - Get a copy of the repository.
+1. Clone or download a copy of this repository.
 
-2 - Rename the file `appsettings.json.tmp` to `appsettings.json`.
+2. Rename the file `appsettings.json.tmp` to `appsettings.json`.
 
-3 - Open the file `appsettings.json` and set the `BackupFolder` to the folder where you want to save the backups, and add a list of repositories that you want to backup.
+3. Open the `appsettings.json` file and configure the following:
+
+    - **BackupFolder**: Set this to the folder where you want the backups to be stored.
+    - **Repositories**: Add the list of repositories you want to back up.
+
+Here's an example of the `appsettings.json` file:
 
 ```json
 {
@@ -30,25 +35,44 @@
 }
 ```
 
-**BackupFolder**: The folder where the backups will be saved.
+### Configuration Fields:
 
-**Repositories**: A list of repositories that you want to backup.
+- **BackupFolder**: The directory where backups will be stored.
+- **Repositories**: A list of repositories to be backed up.
+    - **Name**: A friendly name for the repository.
+    - **Path**: The folder where the repository will be saved (e.g., `BackupFolder` + `Path` = `RepositoryFolder`).
+    - **URL**: The repository’s URL.
 
-**Name**: A frienly name for the repository.
+**Note:** You must have the necessary permissions to clone the repositories.
 
-**Path**: The folder where the repository will be saved. `BackupFolder` + `Path` = `RepositoryFolder`.
-
-**URL**: The URL of the repository.
-
-**NOTE: You must have rights to clone the repositories.**
-
-4 - Run the command `.\gitBackup.exe` in the root folder of the project.
+4. Run the command `.\gitBackup.exe` in the project's root directory to start the backup process.
 
 ---
 
-## Linux users
+## For Linux Users
 
-If you are using Linux, you can build the project using the command `dotnet publish -c Release -r linux-x64` and then run the command `./gitBackup`. This command will require execution permission, you can set it using the command `chmod +x gitBackup`.
+Grant write permissions to the folder where you want to store the backups. You can do this with the following command:
+
+```bash
+sudo chmod -R 777 /path/to/your/folder
+```
+
+If you're using Linux, you can build the project with the following command:
+
+```bash
+dotnet publish -c Release -r linux-x64
+```
+
+Make sure the file has execution permissions. You can grant these permissions with:
+
+```bash
+chmod +x gitBackup
+```
+After building, run the tool with:
+    
+```bash
+./gitBackup
+```
 
 Open an issue if you have any problem.
 
