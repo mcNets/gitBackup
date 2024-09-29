@@ -4,9 +4,15 @@
 
 <span style="color: #082c5f;">**Windows** | **Linux** | **macOS**</span>
 
+NEW:
+```
+I've added a PowerShell and bash script that you can use to schedule the backup process. You can find it in the `Scripts` folder.
+```
+
 **gitBackup** is a command-line tool that allows you to create backups of a list of repositories in a specified drive or folder. The tool checks if there is an existing repository in the specified folder and updates it. If there is no repository, the tool clones it, otherwise, it pull the latest changes and updates the repository.
 
     NOTE: You must have the necessary permissions to clone the repositories.
+
 
 ## Setup Instructions
 
