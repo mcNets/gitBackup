@@ -12,7 +12,7 @@
 
 1. Clone or download a copy of this repository.
 
-2. Rename the file `appsettings.json.tmp` to `appsettings.json`.
+2. Rename the file `appsettings.tmp.json` to `appsettings.json`.
 
 3. Open the `appsettings.json` file and configure the following:
 
