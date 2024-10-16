@@ -1,18 +1,14 @@
-# Limpiar la consola
 Clear-Host
 
-# Obtener la versión actual del ensamblado
 Write-Host "gitBackup Ver." -ForegroundColor Green
 
-# Verificar si existe el archivo appsettings.json
 if (-Not (Test-Path "appsettings.json")) {
     Write-Host "appsettings.json no encontrado" -ForegroundColor Red
-    Write-Host "Sigue las instrucciones en README.md para crear el archivo"
+    Write-Host "Follow README.md on how to build appsettins.json"
     Write-Host "https://github.com/mcNets/gitBackup"
     return
 }
 
-# Leer el archivo appsettings.json
 $appsettings = Get-Content -Raw -Path "appsettings.json" | ConvertFrom-Json
 
 $backupFolder = $appsettings.AppSettings.BackupFolder
@@ -20,19 +16,18 @@ $repositories = $appsettings.Repositories
 
 Write-Host "BackupFolder: $backupFolder"
 
-# Asegurarse de que la carpeta de respaldo exista
-Write-Host "Verificando la carpeta de respaldo: $backupFolder`n"
+Write-Host "Checking backup folder: $backupFolder`n"
 if (-Not (Test-Path $backupFolder)) {
     New-Item -ItemType Directory -Path $backupFolder
     if (-Not (Test-Path $backupFolder)) {
-        Write-Host "No se pudo crear la carpeta de respaldo: $backupFolder" -ForegroundColor Red
+        Write-Host "Cannot create backup folder: $backupFolder" -ForegroundColor Red
         return
     }
 }
 
-# Realizar la copia de seguridad de cada repositorio
+# backup actions
 foreach ($repository in $repositories) {
-    Write-Host "Realizando copia de seguridad del repositorio: $($repository.Name)"
+    Write-Host "Backup repository: $($repository.Name)"
     
     $backupPath = Join-Path -Path $backupFolder -ChildPath $repository.Path
     if (-Not (Test-Path $backupPath)) {
@@ -61,7 +56,7 @@ foreach ($repository in $repositories) {
     Write-Host $output
 
     if ($process.ExitCode -eq 0) {
-        Write-Host "Copia de seguridad del repositorio $($repository.Name) completada con éxito`n" -ForegroundColor Green
+        Write-Host "Backup $($repository.Name) completed`n" -ForegroundColor Green
     } else {
         Write-Host $error -ForegroundColor Red
     }
