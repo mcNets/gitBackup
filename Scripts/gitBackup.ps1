@@ -51,13 +51,13 @@ foreach ($repository in $repositories) {
     $process.WaitForExit()
 
     $output = $process.StandardOutput.ReadToEnd()
-    $error = $process.StandardError.ReadToEnd()
+    $errorOutput = $process.StandardError.ReadToEnd()
 
     Write-Host $output
 
     if ($process.ExitCode -eq 0) {
         Write-Host "Backup $($repository.Name) completed`n" -ForegroundColor Green
     } else {
-        Write-Host $error -ForegroundColor Red
+        Write-Host $errorOutput -ForegroundColor Red
     }
 }
